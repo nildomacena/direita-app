@@ -5,9 +5,21 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { AngularFireModule } from 'angularfire2';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { FireProvider } from '../providers/fire/fire';
+
+const config = {
+  apiKey: "AIzaSyBrb6gLWfsQL44TnQOh8WPJKEnxxHUKrZk",
+  authDomain: "direita-app.firebaseapp.com",
+  databaseURL: "https://direita-app.firebaseio.com",
+  projectId: "direita-app",
+  storageBucket: "direita-app.appspot.com",
+  messagingSenderId: "346053489617"
+};
 
 @NgModule({
   declarations: [
@@ -17,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(config),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -28,7 +41,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    InAppBrowser,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FireProvider
   ]
 })
 export class AppModule {}

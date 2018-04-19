@@ -7,8 +7,8 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content padding (ionScroll)="scroll()" >
+  <ion-card (click)="abrirNoticia()" >
     <img src="assets/imgs/noticia-1.jpg"/>
     <ion-card-content>
       <ion-card-title>
@@ -16,6 +16,28 @@
         </ion-card-title>
       <p style="text-align: justify;">
           O autor do livro de cabeceira do ex-presidente, Jessé de Souza disse que ficou muito contente ao saber que Lula consulta seus livros. "Fico muito envaidecido, obviamente", orgulha-se
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="assets/imgs/noticia-2.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+          Ciro Gomes culpa imprensa
+        </ion-card-title>
+      <p style="text-align: justify;">
+          Ciro Gomes culpa imprensa por “exacerbação moralista” da sociedade e diz que vai prender manifestantes, se for eleito
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="assets/imgs/noticia-2.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+          Ciro Gomes culpa imprensa
+        </ion-card-title>
+      <p style="text-align: justify;">
+          Ciro Gomes culpa imprensa por “exacerbação moralista” da sociedade e diz que vai prender manifestantes, se for eleito
       </p>
     </ion-card-content>
   </ion-card>
