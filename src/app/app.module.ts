@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FireProvider } from '../providers/fire/fire';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 const config = {
   apiKey: "AIzaSyBrb6gLWfsQL44TnQOh8WPJKEnxxHUKrZk",
@@ -30,6 +31,7 @@ const config = {
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

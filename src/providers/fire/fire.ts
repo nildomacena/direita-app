@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
-/*
-  Generated class for the FireProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FireProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public rtdb: AngularFireDatabase)  {
     console.log('Hello FireProvider Provider');
   }
 
+  getNoticias(){
+    return this.rtdb.list('noticias')
+  }
 }
+ 
