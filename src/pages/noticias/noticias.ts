@@ -1,5 +1,5 @@
 import { FireProvider } from './../../providers/fire/fire';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
@@ -15,7 +15,7 @@ export class NoticiasPage {
   bottom: boolean = false;
   numeroNoticias = 3;
   carregando = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public iab: InAppBrowser, public fire: FireProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public iab: InAppBrowser, public fire: FireProvider, public zone: NgZone) {
     this.carregando = true;
     this.fire.getNoticias(this.numeroNoticias)
       .then(noticias => {
@@ -43,12 +43,16 @@ export class NoticiasPage {
       //console.log('dentro',this.content.contentWidth, this.content.scrollHeight, this.content.scrollTop, this.content.contentHeight, this.bottom);
       if(this.content.getContentDimensions().scrollHeight <= this.content.scrollTop + this.content.contentHeight){
         if(!this.bottom){
-          //alert('chegou ao final');
+          console.log('chegou ao final');
           this.carregando = true;
-          this.fire.getNoticias(this.numeroNoticias + 3)
+          this.numeroNoticias +=3;
+          this.fire.getNoticias(this.numeroNoticias)
             .then(noticias => {
+              console.log('notícias',noticias);
               this.carregando = false;
-              this.noticias = noticias;
+              this.zone.run(() => {
+                this.noticias = noticias;
+              });
             })
           this.bottom = true
         }
