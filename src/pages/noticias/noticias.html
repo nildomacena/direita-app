@@ -1,6 +1,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Notícias</ion-title>
   </ion-navbar>
 
@@ -8,48 +11,24 @@
 
 
 <ion-content padding (ionScroll)="scroll()" >
-  <ion-card (click)="abrirNoticia()" >
-    <img src="assets/imgs/noticia-1.jpg"/>
+  <ion-card (click)="abrirNoticia(noticia)" *ngFor="let noticia of noticias" >
+    <img [src]="noticia.urlImagem"/>
     <ion-card-content>
       <ion-card-title>
-          Na cadeia, Lula lê livro sobre erros históricos da direita e esquerda
+          {{noticia.titulo}}
         </ion-card-title>
       <p style="text-align: justify;">
-          O autor do livro de cabeceira do ex-presidente, Jessé de Souza disse que ficou muito contente ao saber que Lula consulta seus livros. "Fico muito envaidecido, obviamente", orgulha-se
+          {{noticias.subtitulo}}
       </p>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <img src="assets/imgs/noticia-2.jpg"/>
-    <ion-card-content>
-      <ion-card-title>
-          Ciro Gomes culpa imprensa
-        </ion-card-title>
-      <p style="text-align: justify;">
-          Ciro Gomes culpa imprensa por “exacerbação moralista” da sociedade e diz que vai prender manifestantes, se for eleito
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="assets/imgs/noticia-2.jpg"/>
-    <ion-card-content>
-      <ion-card-title>
-          Ciro Gomes culpa imprensa
-        </ion-card-title>
-      <p style="text-align: justify;">
-          Ciro Gomes culpa imprensa por “exacerbação moralista” da sociedade e diz que vai prender manifestantes, se for eleito
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="assets/imgs/noticia-2.jpg"/>
-    <ion-card-content>
-      <ion-card-title>
-          Ciro Gomes culpa imprensa
-        </ion-card-title>
-      <p style="text-align: justify;">
-          Ciro Gomes culpa imprensa por “exacerbação moralista” da sociedade e diz que vai prender manifestantes, se for eleito
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid *ngIf="carregando">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col><ion-spinner></ion-spinner></ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

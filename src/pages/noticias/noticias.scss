@@ -3,4 +3,8 @@ page-noticias {
     .card-md{
         margin-bottom: 25px;
     }
+    ion-card ion-img{
+        display: block;
+        width: 100%;
+    }
 }
