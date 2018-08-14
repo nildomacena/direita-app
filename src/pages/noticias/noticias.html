@@ -12,7 +12,7 @@
 
 <ion-content padding (ionScroll)="scroll()" >
   <ion-card (click)="abrirNoticia(noticia)" *ngFor="let noticia of noticias" >
-    <img [src]="noticia.urlImagem"/>
+    <img-loader [src]="noticia.urlImagem"></img-loader>
     <ion-card-content>
       <ion-card-title>
           {{noticia.titulo}}
@@ -22,7 +22,7 @@
       </p>
     </ion-card-content>
   </ion-card>
-  <ion-grid *ngIf="carregando">
+  <ion-grid *ngIf="carregando" no-margin no-padding>
     <ion-row>
       <ion-col></ion-col>
       <ion-col></ion-col>

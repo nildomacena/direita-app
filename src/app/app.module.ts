@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FireProvider } from '../providers/fire/fire';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { IonicImageLoader } from 'ionic-image-loader';
 
 const config = {
   apiKey: "AIzaSyBrb6gLWfsQL44TnQOh8WPJKEnxxHUKrZk",
@@ -33,6 +34,8 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp),
+    IonicImageLoader.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

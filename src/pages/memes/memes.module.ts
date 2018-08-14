@@ -1,3 +1,4 @@
+import { IonicImageLoader } from 'ionic-image-loader';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MemesPage } from './memes';
@@ -7,6 +8,7 @@ import { MemesPage } from './memes';
     MemesPage,
   ],
   imports: [
+    IonicImageLoader.forRoot(),
     IonicPageModule.forChild(MemesPage),
   ],
 })

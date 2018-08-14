@@ -44,13 +44,15 @@ export class NoticiasPage {
       if(this.content.getContentDimensions().scrollHeight <= this.content.scrollTop + this.content.contentHeight){
         if(!this.bottom){
           console.log('chegou ao final');
-          this.carregando = true;
+          this.zone.run(() => {
+            this.carregando = true;
+          })
           this.numeroNoticias +=3;
           this.fire.getNoticias(this.numeroNoticias)
             .then(noticias => {
               console.log('notícias',noticias);
-              this.carregando = false;
               this.zone.run(() => {
+                this.carregando = false;
                 this.noticias = noticias;
               });
             })

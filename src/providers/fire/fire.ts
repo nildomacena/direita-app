@@ -17,7 +17,11 @@ export class FireProvider {
       })
   }
 
-  snapshotParaValue(lista: AngularFireAction<DatabaseSnapshot>[]){
+  getMemes(){
+
+  }
+
+  snapshotParaValue(lista: any[]){
     let novaLista = [];
     lista.map(objeto => {
       let novoObjeto = {};
